@@ -1,4 +1,4 @@
-14
+15
 MB00
 Boeing_123
 225
@@ -56,13 +56,18 @@ AIRBUS
 0
 MB0E1
 BOEING
-69
+627
 0
-1
+0
 MB032
 VACOS ATR
 450
 2
+0
+MBG1
+Boeing_133
+250
+0
 0
 MH370
 Vjp_pro

@@ -254,26 +254,19 @@ void clearFindDSCB(){
 		y+=60;
 	}
 }
+
 void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 	setbkcolor(WHITE);
 	setcolor(color);
 	settextstyle(6,0,size);
-	outtextxy(x,y,s); // moi vao thi xuat chuoi s tai toado: x,y
 	
 	int length = strlen(s); // do dai chuoi s ban dau dua vao
+	char nhay[] ={124,'\0'}; 
+	char ChuoiNhay[max + 2] = "";
+	strcat(ChuoiNhay,s);
+	strcat(ChuoiNhay,nhay);
+	outtextxy(x,y,ChuoiNhay); 
 	
-	char deleted[max+1], deleted_dd[max+1], deleted_INHOA[max+1]  ;// mang dung de xoa hang
-	for(int i = 0; i< max; i++){
-		deleted[i]='d';
-	    deleted_INHOA[i] ='D';
-	}
-	for(int i = 0; i< max-5; i++){   // vi font chu k deu nen xoa het chu cai lon cho ca chu cai nhap thuong thi bi qua nen uoc chung giam di 5
-	    deleted_dd[i] ='D';
-	}   
-	deleted[max] ='\0';  // mang deleted ki tu cuoi = '\0'
-	deleted_INHOA[max] ='\0';	
-	deleted_dd[max-5]='\0';
-
 	char kytu; // kt kytu bat dc tu ban phim
 	switch(kieuNhap){
 		case 1:{ // cho phep nhap chu, co dau cach. ex NHAP HO TEN VA CHUAN HOA
@@ -282,12 +275,13 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					kytu = getch();
 					if(length > 0 && kytu == 8){
 						setcolor(WHITE); 
-						outtextxy(x,y,deleted_dd);
-
-						s[--length] = '\0';
+						outtextxy(x,y,ChuoiNhay);	
+						s[--length] = '\0';						
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);					
 						setcolor(color);
-						outtextxy(x,y,s);
-						
+						outtextxy(x,y,ChuoiNhay);						
 					}
 					else if(length == max){
 						continue;
@@ -299,7 +293,10 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 						else{
 							s[length] = kytu;
 							s[++length] = '\0';
-							outtextxy(x,y,s);
+							ChuoiNhay[0] = '\0';
+							strcat(ChuoiNhay,s);
+							strcat(ChuoiNhay,nhay);
+							outtextxy(x,y,ChuoiNhay); 
 						}
 					}
 					else if( ( kytu >= 97 && kytu <=122 ) || (kytu >=65 && kytu <= 90) ){
@@ -315,12 +312,18 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 						}						
 						s[length] = kytu;
 						s[++length] = '\0';
-						outtextxy(x,y,s);
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);
+						outtextxy(x,y,ChuoiNhay); 
 					}
 									
 				}
 			}
-			
+			setcolor(WHITE); 
+			outtextxy(x,y,ChuoiNhay);
+			setcolor(color); 
+			outtextxy(x,y,s);
 			break;
 		}
 		case 2:{ // cho phep nhap chu, so, khong co dau cach. NHAP IN HOA
@@ -329,11 +332,13 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					kytu = getch();
 					if(length > 0 && kytu == 8){
 						setcolor(WHITE); 
-						outtextxy(x,y,deleted_INHOA);
-						
-						s[--length] = '\0';
+						outtextxy(x,y,ChuoiNhay);	
+						s[--length] = '\0';						
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);					
 						setcolor(color);
-						outtextxy(x,y,s);
+						outtextxy(x,y,ChuoiNhay);
 						
 					}
 					else if(length == max){
@@ -342,17 +347,26 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 						kytu -= 32;
 						s[length] = kytu;
 						s[++length] = '\0';
-						outtextxy(x,y,s);
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);
+						outtextxy(x,y,ChuoiNhay); 
 					}
 					else if(  (kytu >=65 && kytu <= 90) || (kytu >=48 && kytu<= 57)){
 						s[length] = kytu;
 						s[++length] = '\0';
-						outtextxy(x,y,s);
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);
+						outtextxy(x,y,ChuoiNhay); 
 					}
 									
 				}
 			}
-			
+			setcolor(WHITE); 
+			outtextxy(x,y,ChuoiNhay);
+			setcolor(color); 
+			outtextxy(x,y,s);			
 			break;
 		}
 		case 3:{ // chi nhap so || only number
@@ -361,11 +375,13 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					kytu = getch();
 					if(length > 0 && kytu == 8){
 						setcolor(WHITE); 
-						outtextxy(x,y,deleted);
-
-						s[--length] = '\0';
+						outtextxy(x,y,ChuoiNhay);	
+						s[--length] = '\0';						
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);					
 						setcolor(color);
-						outtextxy(x,y,s);
+						outtextxy(x,y,ChuoiNhay);
 						
 					}
 					else if(length == max){
@@ -374,11 +390,18 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					else if((kytu >=48 && kytu<= 57)){
 						s[length] = kytu;
 						s[++length] = '\0';
-						outtextxy(x,y,s);
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);
+						outtextxy(x,y,ChuoiNhay); 
 					}
 									
 				}
 			}
+			setcolor(WHITE); 
+			outtextxy(x,y,ChuoiNhay);
+			setcolor(color); 
+			outtextxy(x,y,s);			
 			break;
 		}
 		case 4:{ // cho phep nhap chu, co dau cach va dau '_'. ex NHAP HO TEN VA CHUAN HOA
@@ -387,11 +410,13 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					kytu = getch();
 					if(length > 0 && kytu == 8){
 						setcolor(WHITE); 
-						outtextxy(x,y,deleted_dd);
-
-						s[--length] = '\0';
+						outtextxy(x,y,ChuoiNhay);	
+						s[--length] = '\0';						
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);					
 						setcolor(color);
-						outtextxy(x,y,s);
+						outtextxy(x,y,ChuoiNhay);
 						
 					}
 					else if(length == max){
@@ -404,7 +429,10 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 						else{
 							s[length] = kytu;
 							s[++length] = '\0';
-							outtextxy(x,y,s);
+							ChuoiNhay[0] = '\0';
+							strcat(ChuoiNhay,s);
+							strcat(ChuoiNhay,nhay);
+							outtextxy(x,y,ChuoiNhay); 
 						}
 					}
 					else if( ( kytu >= 97 && kytu <=122 ) || (kytu >=65 && kytu <= 90) || (kytu >=48 && kytu<= 57) || kytu == 95  ){
@@ -420,14 +448,198 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 						}						
 						s[length] = kytu;
 						s[++length] = '\0';
-						outtextxy(x,y,s);
+						ChuoiNhay[0] = '\0';
+						strcat(ChuoiNhay,s);
+						strcat(ChuoiNhay,nhay);
+						outtextxy(x,y,ChuoiNhay); 
 					}
 									
 				}
 			}
-			
+			setcolor(WHITE); 
+			outtextxy(x,y,ChuoiNhay);
+			setcolor(color); 
+			outtextxy(x,y,s);			
 			break;
 		}
 	}
 	
 }
+
+//void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
+//	setbkcolor(WHITE);
+//	setcolor(color);
+//	settextstyle(6,0,size);
+//	outtextxy(x,y,s); // moi vao thi xuat chuoi s tai toado: x,y
+//	
+//	int length = strlen(s); // do dai chuoi s ban dau dua vao
+//	
+//	char deleted[max+1], deleted_dd[max+1], deleted_INHOA[max+1]  ;// mang dung de xoa hang
+//	for(int i = 0; i< max; i++){
+//		deleted[i]='d';
+//	    deleted_INHOA[i] ='D';
+//	}
+//	for(int i = 0; i< max-5; i++){   // vi font chu k deu nen xoa het chu cai lon cho ca chu cai nhap thuong thi bi qua nen uoc chung giam di 5
+//	    deleted_dd[i] ='D';
+//	}   
+//	deleted[max] ='\0';  // mang deleted ki tu cuoi = '\0'
+//	deleted_INHOA[max] ='\0';	
+//	deleted_dd[max-5]='\0';
+//
+//	char kytu; // kt kytu bat dc tu ban phim
+//	switch(kieuNhap){
+//		case 1:{ // cho phep nhap chu, co dau cach. ex NHAP HO TEN VA CHUAN HOA
+//			while(true && !ismouseclick(WM_LBUTTONDOWN)){
+//				if(kbhit()){
+//					kytu = getch();
+//					if(length > 0 && kytu == 8){
+//						setcolor(WHITE); 
+//						outtextxy(x,y,deleted_dd);
+//
+//						s[--length] = '\0';
+//						setcolor(color);
+//						outtextxy(x,y,s);
+//						
+//					}
+//					else if(length == max){
+//						continue;
+//					}
+//					else if( kytu == 32){
+//						int check = length -1;
+//						if(length == 0 ) continue;   // neu nhap ky tu dau la khoang trang
+//						else if( s[check] == 32) continue;  // neu nhap 2 ky tu khoang trang lien tiep
+//						else{
+//							s[length] = kytu;
+//							s[++length] = '\0';
+//							outtextxy(x,y,s);
+//						}
+//					}
+//					else if( ( kytu >= 97 && kytu <=122 ) || (kytu >=65 && kytu <= 90) ){
+//						int check = length -1;
+//						if(length == 0) {  // neu nhap chu dau tien thi in hoa
+//							if(( kytu >= 97 && kytu <=122 )) kytu-=32;
+//						}else if(s[check] == 32 && ( kytu >= 97 && kytu <=122 ) ){ // neu nhap chu sau dau cach thi in hoa len
+//							kytu -= 32;
+//						}else if(s[check] == 32 &&  (kytu >=65 && kytu <= 90)){  // neu nhap chu sau dau cah ma nhap InHOA thi giu nguyen
+//						}
+//						else if( (kytu >=65 && kytu <= 90) ){ // neu nhap chu hoa thi ve chu thuong
+//							kytu +=32;
+//						}						
+//						s[length] = kytu;
+//						s[++length] = '\0';
+//						outtextxy(x,y,s);
+//					}
+//									
+//				}
+//			}
+//			
+//			break;
+//		}
+//		case 2:{ // cho phep nhap chu, so, khong co dau cach. NHAP IN HOA
+//			while(true && !ismouseclick(WM_LBUTTONDOWN)){
+//				if(kbhit()){
+//					kytu = getch();
+//					if(length > 0 && kytu == 8){
+//						setcolor(WHITE); 
+//						outtextxy(x,y,deleted_INHOA);
+//						
+//						s[--length] = '\0';
+//						setcolor(color);
+//						outtextxy(x,y,s);
+//						
+//					}
+//					else if(length == max){
+//						continue;
+//					}else if( kytu >= 97 && kytu <=122 ){
+//						kytu -= 32;
+//						s[length] = kytu;
+//						s[++length] = '\0';
+//						outtextxy(x,y,s);
+//					}
+//					else if(  (kytu >=65 && kytu <= 90) || (kytu >=48 && kytu<= 57)){
+//						s[length] = kytu;
+//						s[++length] = '\0';
+//						outtextxy(x,y,s);
+//					}
+//									
+//				}
+//			}
+//			
+//			break;
+//		}
+//		case 3:{ // chi nhap so || only number
+//			while(true && !ismouseclick(WM_LBUTTONDOWN)){
+//				if(kbhit()){
+//					kytu = getch();
+//					if(length > 0 && kytu == 8){
+//						setcolor(WHITE); 
+//						outtextxy(x,y,deleted);
+//
+//						s[--length] = '\0';
+//						setcolor(color);
+//						outtextxy(x,y,s);
+//						
+//					}
+//					else if(length == max){
+//						continue;
+//					}
+//					else if((kytu >=48 && kytu<= 57)){
+//						s[length] = kytu;
+//						s[++length] = '\0';
+//						outtextxy(x,y,s);
+//					}
+//									
+//				}
+//			}
+//			break;
+//		}
+//		case 4:{ // cho phep nhap chu, co dau cach va dau '_'. ex NHAP HO TEN VA CHUAN HOA
+//			while(true && !ismouseclick(WM_LBUTTONDOWN)){
+//				if(kbhit()){
+//					kytu = getch();
+//					if(length > 0 && kytu == 8){
+//						setcolor(WHITE); 
+//						outtextxy(x,y,deleted_dd);
+//
+//						s[--length] = '\0';
+//						setcolor(color);
+//						outtextxy(x,y,s);
+//						
+//					}
+//					else if(length == max){
+//						continue;
+//					}
+//					else if( kytu == 32){
+//						int check = length -1;
+//						if(length == 0 ) continue;   // neu nhap ky tu dau la khoang trang
+//						else if( s[check] == 32) continue;  // neu nhap 2 ky tu khoang trang lien tiep
+//						else{
+//							s[length] = kytu;
+//							s[++length] = '\0';
+//							outtextxy(x,y,s);
+//						}
+//					}
+//					else if( ( kytu >= 97 && kytu <=122 ) || (kytu >=65 && kytu <= 90) || (kytu >=48 && kytu<= 57) || kytu == 95  ){
+//						int check = length -1;
+//						if(length == 0) {  // neu nhap chu dau tien thi in hoa
+//							if(( kytu >= 97 && kytu <=122 )) kytu-=32;
+//						}else if(s[check] == 32 && ( kytu >= 97 && kytu <=122 ) ){ // neu nhap chu sau dau cach thi in hoa len
+//							kytu -= 32;
+//						}else if(s[check] == 32 &&  (kytu >=65 && kytu <= 90)){  // neu nhap chu sau dau cah ma nhap InHOA thi giu nguyen
+//						}
+//						else if( (kytu >=65 && kytu <= 90) ){ // neu nhap chu hoa thi ve chu thuong
+//							kytu +=32;
+//						}						
+//						s[length] = kytu;
+//						s[++length] = '\0';
+//						outtextxy(x,y,s);
+//					}
+//									
+//				}
+//			}
+//			
+//			break;
+//		}
+//	}
+//	
+//}

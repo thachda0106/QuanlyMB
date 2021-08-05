@@ -91,7 +91,7 @@ int getPageMAXDSVE(int slVE){
 	else{
 		slVE-= 140;
 		maxPAGE += slVE/110;
-		slVE /= 110;
+		slVE %= 110;
 		if(slVE != 0) maxPAGE++;
 	}
 	return maxPAGE;

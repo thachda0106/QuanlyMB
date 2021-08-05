@@ -515,7 +515,7 @@ void newCB(DANHSACHCB &DSCB){
 					rectangle(900-2,570+10-2,940+2,630+10+2);
 					rectangle(960-2,570+10-2,1000+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);	
-					nhapChuoi(gio,770,600,3,2,BLACK,1);
+					nhapChuoi(gio,770-5,600,3,2,BLACK,1);
 					break;
 				}
 				case 5:{ //phut
@@ -531,7 +531,7 @@ void newCB(DANHSACHCB &DSCB){
 					rectangle(900-2,570+10-2,940+2,630+10+2);
 					rectangle(960-2,570+10-2,1000+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);	
-					nhapChuoi(phut,830,600,3,2,BLACK,1);
+					nhapChuoi(phut,830-5,600,3,2,BLACK,1);
 					break;
 				}
 				case 6:{ //ngay
@@ -547,7 +547,7 @@ void newCB(DANHSACHCB &DSCB){
 					rectangle(820-2,570+10-2,860+2,630+10+2);
 					rectangle(960-2,570+10-2,1000+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);	
-					nhapChuoi(ngay,910,600,3,2,BLACK,1);		
+					nhapChuoi(ngay,910-5,600,3,2,BLACK,1);		
 					break;
 				}
 				case 7:{ //thang
@@ -563,7 +563,7 @@ void newCB(DANHSACHCB &DSCB){
 					rectangle(820-2,570+10-2,860+2,630+10+2);
 					rectangle(900-2,570+10-2,940+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);		
-					nhapChuoi(thang,970,600,3,2,BLACK,1);		
+					nhapChuoi(thang,970-5,600,3,2,BLACK,1);		
 					break;
 				}
 				case 8:{ //nam
@@ -701,10 +701,10 @@ void correctionCB(DANHSACHCB &DSCB, NODECB &p){
 	outText(maCB,770,270,9,BLACK,WHITE,1);
 	outText(sanBayDen,770,380,9,BLACK,WHITE,1);
 	outText(soHieuMB,770,490,9,BLACK,WHITE,1);
-	outText(gio,770,600,9,BLACK,WHITE,1);
-	outText(phut,830,600,9,BLACK,WHITE,1);
-	outText(ngay,910,600,9,BLACK,WHITE,1);
-	outText(thang,970,600,9,BLACK,WHITE,1);
+	outText(gio,770-5,600,9,BLACK,WHITE,1);
+	outText(phut,830-5,600,9,BLACK,WHITE,1);
+	outText(ngay,910-5,600,9,BLACK,WHITE,1);
+	outText(thang,970-5,600,9,BLACK,WHITE,1);
 	outText(nam,1030,600,9,BLACK,WHITE,1);
 	int selected,x,y;
 	
@@ -762,7 +762,7 @@ void correctionCB(DANHSACHCB &DSCB, NODECB &p){
 					rectangle(900-2,570+10-2,940+2,630+10+2);
 					rectangle(960-2,570+10-2,1000+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);	
-					nhapChuoi(gio,770,600,3,2,BLACK,1);
+					nhapChuoi(gio,770-5,600,3,2,BLACK,1);
 					break;
 				}
 				case 5:{ //hieu chinh phut
@@ -778,7 +778,7 @@ void correctionCB(DANHSACHCB &DSCB, NODECB &p){
 					rectangle(900-2,570+10-2,940+2,630+10+2);
 					rectangle(960-2,570+10-2,1000+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);	
-					nhapChuoi(phut,830,600,3,2,BLACK,1);
+					nhapChuoi(phut,830-5,600,3,2,BLACK,1);
 					break;
 				}
 				case 6:{ //hieu chinh ngay
@@ -794,7 +794,7 @@ void correctionCB(DANHSACHCB &DSCB, NODECB &p){
 					rectangle(820-2,570+10-2,860+2,630+10+2);
 					rectangle(960-2,570+10-2,1000+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);	
-					nhapChuoi(ngay,910,600,3,2,BLACK,1);		
+					nhapChuoi(ngay,910-5,600,3,2,BLACK,1);		
 					break;
 				}
 				case 7:{ //hieu chinh thang
@@ -810,7 +810,7 @@ void correctionCB(DANHSACHCB &DSCB, NODECB &p){
 					rectangle(820-2,570+10-2,860+2,630+10+2);
 					rectangle(900-2,570+10-2,940+2,630+10+2);
 					rectangle(1020-2,570+10-2,1100+2,630+10+2);		
-					nhapChuoi(thang,970,600,3,2,BLACK,1);		
+					nhapChuoi(thang,970-5,600,3,2,BLACK,1);		
 					break;
 				}
 				case 8:{ //hieu chinh nam
