@@ -299,8 +299,7 @@ void findDSMB_SEARCH(DANHSACHMB& DS_MAYBAY, DANHSACHMB& DSMB_SEARCH, char* SHMB)
 	for(int i = 0; i< DS_MAYBAY.sl; i++){
 		if(strstr(DS_MAYBAY.MAYBAY[i]->soHieuMB, SHMB) != NULL){
 			DSMB_SEARCH.MAYBAY[DSMB_SEARCH.sl] = DS_MAYBAY.MAYBAY[i];	
-			DSMB_SEARCH.sl++;
-			
+			DSMB_SEARCH.sl++;			
 		}
 	}
 }

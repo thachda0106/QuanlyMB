@@ -589,10 +589,7 @@ void windowsTicket(){
 					}else{
 						xuatDSCB(DSCB_SEARCH,page_search);
 						outText(SBD_SEARCH,1175-50,137,9,GREEN,WHITE,1);
-					}				
-					if(p!= NULL){ // highlight
-						hightlighNODECB(p,selectedNODECB,page_search,BLACK,WHITE);
-					}			
+					}							
 					if(strlen(SBD_SEARCH) == 0 && p!= NULL){// khi o tim kiem rong	
 						hightlighNODECB(p,selectedNODECB,page,BLACK,WHITE);									
 					}
