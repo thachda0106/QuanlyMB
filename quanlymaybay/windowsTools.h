@@ -320,10 +320,6 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 									
 				}
 			}
-			setcolor(WHITE); 
-			outtextxy(x,y,ChuoiNhay);
-			setcolor(color); 
-			outtextxy(x,y,s);
 			break;
 		}
 		case 2:{ // cho phep nhap chu, so, khong co dau cach. NHAP IN HOA
@@ -362,11 +358,7 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					}
 									
 				}
-			}
-			setcolor(WHITE); 
-			outtextxy(x,y,ChuoiNhay);
-			setcolor(color); 
-			outtextxy(x,y,s);			
+			}			
 			break;
 		}
 		case 3:{ // chi nhap so || only number
@@ -397,11 +389,7 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					}
 									
 				}
-			}
-			setcolor(WHITE); 
-			outtextxy(x,y,ChuoiNhay);
-			setcolor(color); 
-			outtextxy(x,y,s);			
+			}			
 			break;
 		}
 		case 4:{ // cho phep nhap chu, co dau cach va dau '_'. ex NHAP HO TEN VA CHUAN HOA
@@ -455,14 +443,14 @@ void nhapChuoi(char s[],int x,int y,int kieuNhap,int max,int color,int size){
 					}
 									
 				}
-			}
-			setcolor(WHITE); 
-			outtextxy(x,y,ChuoiNhay);
-			setcolor(color); 
-			outtextxy(x,y,s);			
+			}			
 			break;
 		}
 	}
+	setcolor(WHITE); 
+	outtextxy(x,y,ChuoiNhay);
+	setcolor(color); 
+	outtextxy(x,y,s);	
 	
 }
 
