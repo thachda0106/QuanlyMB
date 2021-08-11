@@ -471,7 +471,7 @@ void cancelVE(DANHSACHCB& DS_CHUYENBAY, DANHSACHHK & DS_HANHKHACH, NODECB& cb ){
 				}
 				case 7:{  // HUY VE
 					if(!isBooked ){
-						outText("So cmnd chua dat ve.(so cmnd co 9 so)!", 430,250,6,RED,11,1);	
+						outText("So cmnd chua dat ve.(so cmnd co 9 so)!       ", 430,250,6,RED,11,1);	
 						break;					
 					}
 					bool check = confirm("Ban co chac muon","huy ve khong?");

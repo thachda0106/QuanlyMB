@@ -419,7 +419,7 @@ void windowsPlane(){
 					}
 					DSMB_SEARCH.sl = 0;
 					findDSMB_SEARCH(DS_MAYBAY,DSMB_SEARCH,SHMB_SEARCH);
-				
+				 
 					if(DSMB_SEARCH.sl == 0){
 						thongbao("So hieu may bay ","khong ton tai!");
 						break;

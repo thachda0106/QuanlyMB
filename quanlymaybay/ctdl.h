@@ -75,6 +75,7 @@ struct danhsachcb
 		while(ds != NULL){
 			p = ds;
 			ds = ds->next;
+			delete[] p->info.DSVE.ds;
 			delete p;	
 		}		
 	}

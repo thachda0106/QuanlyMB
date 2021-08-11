@@ -111,6 +111,7 @@ int DeleteCB(DANHSACHCB& DS_CHUYENBAY, char * maCB)
 	{
 		p = DS_CHUYENBAY.ds;
 		DS_CHUYENBAY.ds = p->next;
+		delete[] p->info.DSVE.ds;
 		delete p;
 		DS_CHUYENBAY.sl--;
 		return 1;
@@ -124,6 +125,7 @@ int DeleteCB(DANHSACHCB& DS_CHUYENBAY, char * maCB)
 	{
 		NODECB q = p->next;
 		p->next = q->next;
+		delete[] q->info.DSVE.ds;
 		delete q;
 		DS_CHUYENBAY.sl--;
 		return 1;
@@ -176,7 +178,7 @@ void SEARCH_DSCB_SBD(DANHSACHCB& DSCB_SEARCH,char *SBD_SEARCH){
 void AddDSCB_CONVE(DANHSACHCB& DS_CHUYENBAY, DANHSACHCB& DSCB_CONVE){
 	for(NODECB p = DS_CHUYENBAY.ds; p!= NULL; p=p->next){
 		if(p->info.trangThai == CONVE || p->info.trangThai == HETVE ){
-			insertCB(DSCB_CONVE, p->info);
+			insertCB(DSCB_CONVE, p->info); 
 		}
 	}
 }
