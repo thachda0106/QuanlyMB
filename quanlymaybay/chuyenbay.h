@@ -98,7 +98,7 @@ void readFileCB(DANHSACHCB &DSCB, DANHSACHMB &DSMB){
 			Last->next = p;
 		}
 	}
-	CheckActiveAllPlane(DSCB,DSMB);
+	CheckActiveAllPlane(DSCB,DSMB); 
 	fileInput.close();
 }
 
@@ -169,7 +169,7 @@ void SEARCH_DSCB_MCB(DANHSACHCB& DSCB_SEARCH,char *MCB_SEARCH){
 void SEARCH_DSCB_SBD(DANHSACHCB& DSCB_SEARCH,char *SBD_SEARCH){
 	NODECB p = DS_CHUYENBAY.ds;
 	for(;p!= NULL; p=p->next){
-		if( p->info.trangThai == CONVE &&  strstr( p->info.sanBayDen,SBD_SEARCH) != NULL){
+		if( (p->info.trangThai == CONVE || p->info.trangThai == HETVE)  &&  strstr( p->info.sanBayDen,SBD_SEARCH) != NULL){
 			insertCB(DSCB_SEARCH, p->info);
 		}
 	}
@@ -197,6 +197,7 @@ void clearDSCB(DANHSACHCB& DSCB){
 	while(DSCB.ds != NULL){
 		p = DSCB.ds;
 		DSCB.ds = DSCB.ds->next;
+		delete[] p->info.DSVE.ds;
 		delete p;
 		DSCB.sl--;		
 	}

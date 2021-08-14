@@ -297,6 +297,7 @@ void bookVE(DANHSACHCB &DS_CHUYENBAY, DANHSACHHK& DS_HANHKHACH, NODECB& cb){
 						break;
 					}
 					
+					
 					if(gioitinh == 0) hk.gioiTinh = NAM;
 					else hk.gioiTinh = NU;
 					// tim xem co so cmnd nay tren chuyen bay chua (moi nguoi chi dat duoc 1 ve)
